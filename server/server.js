@@ -40,5 +40,6 @@ app.delete('/usuario', (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
+    console.log(Buffer.from("GP_MORFOLOGIA_DE_LA_CIUDAD_DE_MEXICO").toString("base64"));
     console.log('Escuchando puerto', process.env.PORT);
 })
