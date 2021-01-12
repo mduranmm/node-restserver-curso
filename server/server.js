@@ -1,24 +1,29 @@
+require('./config/config');
 const express = require('express');
 const mongoose = require('mongoose')
 
-
 const app = express()
 const bodyParser = require('body-parser');
-require('./config/config');
+const path = require('path');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
-app.use(require('./routes/usuarios'));
+//Habilitar la carpeta public
+app.use(express.static(path.resolve(__dirname, 'public')));
+
+app.use(require('./routes/index'));
 
 
 app.get('/', (req, res) => {
+    console.log("CONN", process.env.URLDB);
     res.json('Hello World')
 });
 
 
 
 //'mongodb+srv://cafe-mgdb-20:4aCJ3XqcdvBRcwMB@cluster0.kyzx7.mongodb.net/cafe?retryWrites=true&w=majority'
+console.log("CONN", process.env.URLDB);
 mongoose.connect(process.env.URLDB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,

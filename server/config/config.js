@@ -1,8 +1,7 @@
-require('dotenv');
+require('dotenv').config();
 // ================
 // Puerto
 // ================
-
 process.env.PORT = process.env.PORT || 3000;
 
 // ================
@@ -19,7 +18,7 @@ if (process.env.NODE_ENV) {
     urlDB = process.env.MONGO_URI;
 }*/
 
-process.env.URLDB = process.env.MONGO_URI;
+process.env.URLDB = '';
 
 //process.env.URLDB = urlDB;
 
@@ -37,3 +36,8 @@ process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
 // SEED de autentificación
 // ================
 process.env.SEED = process.env.SEED || 'this-is-develop-seed';
+
+// ================
+// Google Client ID
+// ================
+process.env.CLIENT_ID = process.env.CLIENT_ID || '';
